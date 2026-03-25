@@ -16,7 +16,7 @@ def launch_setup(context, *args, **kwargs):
         pkg_share, "config", "controllers.yaml"
     )
     world_path = os.path.join(
-        pkg_share, "worlds", "home_world.sdf"
+        pkg_share, "worlds", "home_world_two_rooms.sdf"
     )
 
     # You need to create this URDF file
