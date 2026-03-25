@@ -189,7 +189,7 @@
       
       <include>
         <name>Couch0</name>
-        <pose>-0.8 -1.5 0 0 0 0</pose>
+        <pose>-2.0 -1.5 0 0 0 0</pose>
         <uri>
           https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sofa
         </uri>
@@ -214,10 +214,6 @@
       <joint name="east_left_to_east_header" type="fixed">
         <parent>east_wall_left</parent>
         <child>east_wall_header</child>
-      </joint>
-      <joint name="east_right_to_east_header" type="fixed">
-        <parent>east_wall_header</parent>
-        <child>east_wall_right</child>
       </joint>
     </model>
 
