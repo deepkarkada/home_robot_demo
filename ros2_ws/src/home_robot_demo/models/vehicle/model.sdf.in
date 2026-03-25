@@ -1,0 +1,425 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="vehicle" canonical_link="chassis">
+    <pose>0 0 0 0 0 0</pose>
+    
+    <frame name="lidar_frame" attached_to='chassis'>
+      <pose>0.8 0 0.5 0 0 0</pose>
+    </frame>
+
+    <link name="chassis">
+      <pose>0 0 0.18 0 0 0</pose>
+
+      <inertial>
+          <mass>5.0</mass>
+          <inertia>
+            <ixx>0.03</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.03</iyy>
+            <iyz>0</iyz>
+            <izz>0.03</izz>
+          </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.60 0.50 0.20</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.60 0.50 0.20</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 1.0 1</ambient>
+          <diffuse>0.0 0.0 1.0 1</diffuse>
+          <specular>0.0 0.0 1.0 1</specular>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Torso -->
+    <link name="torso">
+      <pose relative_to="chassis">0 0 0.22 0 0 0</pose>
+
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.12 0.12 0.25</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.12 0.12 0.25</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1.0 1.0 0.5 1.0</ambient>
+          <diffuse>1.0 1.0 0.5 1.0</diffuse>
+          <specular>1.0 1.0 0.5 1.0</specular>
+        </material>
+      </visual>
+    </link>
+
+    <!--Head on top of torso -->
+    <link name="head">
+      <pose relative_to="torso">0 0 0.15 0 0 0</pose>
+
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.0001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0001</iyy>
+          <iyz>0</iyz>
+          <izz>0.0001</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.02 0.08 0.05</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0.75 1.0</ambient>
+          <diffuse>0.0 0.0 0.75 1.0</diffuse>
+          <specular>0.0 0.0 0.75 1.0</specular>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Wheels -->
+    <!-- Left Front -->
+    <link name="left_front_wheel">
+      <pose relative_to="chassis">0.15 0.18 -0.10 -1.5707 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><cylinder><radius>0.08</radius><length>0.05</length></cylinder></geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.08</radius><length>0.05</length></cylinder></geometry>
+      </visual>
+    </link>
+
+    <!-- Right Front -->
+    <link name="right_front_wheel">
+      <pose relative_to="chassis">0.15 -0.18 -0.10 -1.5707 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><cylinder><radius>0.08</radius><length>0.05</length></cylinder></geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.08</radius><length>0.05</length></cylinder></geometry>
+      </visual>
+    </link>
+
+    <!-- Left Back -->
+    <link name="left_back_wheel">
+      <pose relative_to="chassis">-0.15 0.18 -0.10 -1.5707 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><cylinder><radius>0.08</radius><length>0.05</length></cylinder></geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.08</radius><length>0.05</length></cylinder></geometry>
+      </visual>
+    </link>
+
+    <!-- Right Back -->
+    <link name="right_back_wheel">
+      <pose relative_to="chassis">-0.15 -0.18 -0.10 -1.5707 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><cylinder><radius>0.08</radius><length>0.05</length></cylinder></geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.08</radius><length>0.05</length></cylinder></geometry>
+      </visual>
+    </link>
+
+    <!-- LIDAR -->
+    <link name="lidar_link">
+      <pose>0 0 0.5 0 0 0</pose>
+      <sensor name="lidar" type="gpu_lidar">
+        <topic>/scan</topic>
+        <update_rate>10</update_rate>
+        <ray>
+          <scan>
+           <horizontal>
+           <samples>640</samples>
+           <resolution>1</resolution>
+           <min_angle>-1.396263</min_angle>
+           <max_angle>1.396263</max_angle>
+           </horizontal>
+           <vertical>
+           <samples>1</samples>
+           <resolution>0.01</resolution>
+           <min_angle>0</min_angle>
+           <max_angle>0</max_angle>
+           </vertical>
+          </scan>
+         <range>
+          <min>0.08</min>
+          <max>10.0</max>
+          <resolution>0.01</resolution>
+         </range>
+        </ray>
+        <always_on>1</always_on>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+
+    <!-- Camera mounted on torso facing forward -->
+    <link name="camera_link">
+      <pose relative_to="torso">0.08 0 0.08 0 0 0</pose>
+
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.0001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0001</iyy>
+          <iyz>0</iyz>
+          <izz>0.0001</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+        </material>
+      </visual>
+
+      <sensor name="front_camera" type="camera">
+        <topic>/camera/image</topic>
+        <update_rate>20</update_rate>
+        <camera>
+          <horizontal_fov>1.5708</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>20.0</far>
+          </clip>
+        </camera>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+
+    <!-- Joints -->
+    <joint name="torso_joint" type="fixed">
+      <parent>chassis</parent>
+      <child>torso</child>
+    </joint>
+
+    <joint name="head_joint" type="fixed">
+      <parent>torso</parent>
+      <child>head</child>
+    </joint>
+
+    <joint name="camera_joint" type="fixed">
+      <parent>torso</parent>
+      <child>camera_link</child>
+    </joint>
+
+    <joint name="left_back_wheel_joint" type="revolute">
+        <pose relative_to="left_back_wheel">0 0 0 0 0 0</pose>
+        <parent>chassis</parent>
+        <child>left_back_wheel</child>
+        <axis>
+          <xyz expressed_in="__model__">0 1 0</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+        </axis>
+      </joint>
+
+      <joint name="left_front_wheel_joint" type="revolute">
+        <pose relative_to="left_front_wheel">0 0 0 0 0 0</pose>
+        <parent>chassis</parent>
+        <child>left_front_wheel</child>
+        <axis>
+          <xyz expressed_in="__model__">0 1 0</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+        </axis>
+      </joint>
+
+      <joint name="right_front_wheel_joint" type="revolute">
+        <pose relative_to="right_front_wheel">0 0 0 0 0 0</pose>
+        <parent>chassis</parent>
+        <child>right_front_wheel</child>
+        <axis>
+          <xyz expressed_in="__model__">0 1 0</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+        </axis>
+      </joint>
+
+      <joint name="right_back_wheel_joint" type="revolute">
+        <pose relative_to="right_back_wheel">0 0 0 0 0 0</pose>
+        <parent>chassis</parent>
+        <child>right_back_wheel</child>
+        <axis>
+          <xyz expressed_in="__model__">0 1 0</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+        </axis>
+      </joint>
+
+    <joint name="lidar_joint" type="fixed">
+      <parent>chassis</parent>
+      <child>lidar_link</child>
+    </joint>
+
+    <!-- ROS2 CONTROL -->
+    <ros2_control name="GazeboSystem" type="system">
+      <hardware>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </hardware>
+
+      <joint name="left_front_wheel_joint">
+        <command_interface name="velocity"/>
+        <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="right_front_wheel_joint">
+        <command_interface name="velocity"/>
+        <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="left_back_wheel_joint">
+        <command_interface name="velocity"/>
+        <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="right_back_wheel_joint">
+        <command_interface name="velocity"/>
+        <state_interface name="velocity"/>
+      </joint>
+    </ros2_control>
+
+    <plugin filename="libgz-sim-sensors-system.so"
+        name="gz::sim::systems::Sensors"/>
+
+    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <robot_param>robot_description</robot_param>
+      <robot_param_node>robot_state_publisher</robot_param_node>
+      <parameters>{{CONTROLLERS_YAML}}</parameters>
+    </plugin>
+
+  </model>
+</sdf>
