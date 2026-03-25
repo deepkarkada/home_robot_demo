@@ -23,7 +23,7 @@
         <linear>0.01</linear>
         <quadratic>0.001</quadratic>
       </attenuation>
-      <direction>-0.5 0.1 -0.9</direction>
+      <direction>-0.5 0.1 -1</direction>
     </light>
 
     <model name="ground_plane">
@@ -55,42 +55,17 @@
     <model name="room_walls">
       <static>true</static>
 
+      <!-- Room 1: 6.10m x 6.10m, wall height 3.0m -->
       <link name="north_wall">
-        <pose>0 3.0 1.25 0 0 0</pose>
+        <pose>0 3.05 1.5 0 0 0</pose>
         <collision name="collision">
           <geometry>
-            <box>
-              <size>6.0 0.10 2.50</size>
-            </box>
+            <box><size>6.10 0.10 3.00</size></box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <box>
-              <size>6.0 0.10 2.50</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>0.85 0.85 0.85 1</ambient>
-            <diffuse>0.85 0.85 0.85 1</diffuse>
-          </material>
-        </visual>
-      </link>
-
-      <link name="east_wall">
-        <pose>3.05 0 1.25 0 0 0</pose>
-        <collision name="collision">
-          <geometry>
-            <box>
-              <size>0.10 6.10 2.50</size>
-            </box>
-          </geometry>
-        </collision>
-        <visual name="visual">
-          <geometry>
-            <box>
-              <size>0.10 6.10 2.50</size>
-            </box>
+            <box><size>6.10 0.10 3.00</size></box>
           </geometry>
           <material>
             <ambient>0.85 0.85 0.85 1</ambient>
@@ -100,19 +75,15 @@
       </link>
 
       <link name="west_wall">
-        <pose>-3.05 0 1.25 0 0 0</pose>
+        <pose>-3.05 0 1.5 0 0 0</pose>
         <collision name="collision">
           <geometry>
-            <box>
-              <size>0.10 6.10 2.50</size>
-            </box>
+            <box><size>0.10 6.10 3.00</size></box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <box>
-              <size>0.10 6.10 2.50</size>
-            </box>
+            <box><size>0.10 6.10 3.00</size></box>
           </geometry>
           <material>
             <ambient>0.85 0.85 0.85 1</ambient>
@@ -121,20 +92,17 @@
         </visual>
       </link>
 
+      <!-- Bottom room opening remains on the south side -->
       <link name="south_wall_left">
-        <pose>-1.75 -3.05 1.25 0 0 0</pose>
+        <pose>-1.75 -3.05 1.5 0 0 0</pose>
         <collision name="collision">
           <geometry>
-            <box>
-              <size>2.50 0.10 2.50</size>
-            </box>
+            <box><size>2.50 0.10 3.00</size></box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <box>
-              <size>2.50 0.10 2.50</size>
-            </box>
+            <box><size>2.50 0.10 3.00</size></box>
           </geometry>
           <material>
             <ambient>0.85 0.85 0.85 1</ambient>
@@ -144,19 +112,15 @@
       </link>
 
       <link name="south_wall_right">
-        <pose>1.75 -3.05 1.25 0 0 0</pose>
+        <pose>1.75 -3.05 1.5 0 0 0</pose>
         <collision name="collision">
           <geometry>
-            <box>
-              <size>2.50 0.10 2.50</size>
-            </box>
+            <box><size>2.50 0.10 3.00</size></box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <box>
-              <size>2.50 0.10 2.50</size>
-            </box>
+            <box><size>2.50 0.10 3.00</size></box>
           </geometry>
           <material>
             <ambient>0.85 0.85 0.85 1</ambient>
@@ -166,19 +130,15 @@
       </link>
 
       <link name="south_wall_header">
-        <pose>0 -3.05 2.30 0 0 0</pose>
+        <pose>0 -3.05 2.65 0 0 0</pose>
         <collision name="collision">
           <geometry>
-            <box>
-              <size>1.10 0.10 0.40</size>
-            </box>
+            <box><size>1.10 0.10 0.70</size></box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <box>
-              <size>1.10 0.10 0.40</size>
-            </box>
+            <box><size>1.10 0.10 0.70</size></box>
           </geometry>
           <material>
             <ambient>0.85 0.85 0.85 1</ambient>
@@ -186,19 +146,124 @@
           </material>
         </visual>
       </link>
-      
+
+      <!-- Shared wall between rooms: opening in the east wall of room 1 -->
+      <link name="east_wall_north">
+        <pose>3.05 1.75 1.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>0.10 1.50 3.00</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>0.10 1.50 3.00</size></box>
+          </geometry>
+          <material>
+            <ambient>0.85 0.85 0.85 1</ambient>
+            <diffuse>0.85 0.85 0.85 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <link name="east_wall_south">
+        <pose>3.05 -1.75 1.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>0.10 1.50 3.00</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>0.10 1.50 3.00</size></box>
+          </geometry>
+          <material>
+            <ambient>0.85 0.85 0.85 1</ambient>
+            <diffuse>0.85 0.85 0.85 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <link name="east_wall_header">
+        <pose>3.05 0 2.65 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>0.10 1.10 0.70</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>0.10 1.10 0.70</size></box>
+          </geometry>
+          <material>
+            <ambient>0.85 0.85 0.85 1</ambient>
+            <diffuse>0.85 0.85 0.85 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <!-- Room 2 directly to the right (+X) of room 1, sharing the opened wall line at x=3.05 -->
+      <link name="room2_north_wall">
+        <pose>6.10 3.05 1.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>6.10 0.10 3.00</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>6.10 0.10 3.00</size></box>
+          </geometry>
+          <material>
+            <ambient>0.85 0.85 0.85 1</ambient>
+            <diffuse>0.85 0.85 0.85 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <link name="room2_east_wall">
+        <pose>9.15 0 1.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>0.10 6.10 3.00</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>0.10 6.10 3.00</size></box>
+          </geometry>
+          <material>
+            <ambient>0.85 0.85 0.85 1</ambient>
+            <diffuse>0.85 0.85 0.85 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <link name="room2_south_wall">
+        <pose>6.10 -3.05 1.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>6.10 0.10 3.00</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>6.10 0.10 3.00</size></box>
+          </geometry>
+          <material>
+            <ambient>0.85 0.85 0.85 1</ambient>
+            <diffuse>0.85 0.85 0.85 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <!-- Optional furniture kept only in room 1 -->
       <include>
-        <name>Couch0</name>
+        <name>Couch_room1</name>
         <pose>-0.8 1.3 0 0 0 0</pose>
-        <uri>
-          https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sofa
-        </uri>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sofa</uri>
       </include>
 
-      <joint name="north_to_east" type="fixed">
-        <parent>north_wall</parent>
-        <child>east_wall</child>
-      </joint>
       <joint name="north_to_west" type="fixed">
         <parent>north_wall</parent>
         <child>west_wall</child>
@@ -214,6 +279,30 @@
       <joint name="north_to_south_header" type="fixed">
         <parent>north_wall</parent>
         <child>south_wall_header</child>
+      </joint>
+      <joint name="north_to_east_north" type="fixed">
+        <parent>north_wall</parent>
+        <child>east_wall_north</child>
+      </joint>
+      <joint name="north_to_east_south" type="fixed">
+        <parent>north_wall</parent>
+        <child>east_wall_south</child>
+      </joint>
+      <joint name="north_to_east_header" type="fixed">
+        <parent>north_wall</parent>
+        <child>east_wall_header</child>
+      </joint>
+      <joint name="north_to_room2_north" type="fixed">
+        <parent>north_wall</parent>
+        <child>room2_north_wall</child>
+      </joint>
+      <joint name="north_to_room2_east" type="fixed">
+        <parent>north_wall</parent>
+        <child>room2_east_wall</child>
+      </joint>
+      <joint name="north_to_room2_south" type="fixed">
+        <parent>north_wall</parent>
+        <child>room2_south_wall</child>
       </joint>
     </model>
 
