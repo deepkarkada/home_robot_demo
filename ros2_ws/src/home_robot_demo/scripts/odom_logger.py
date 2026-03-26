@@ -31,6 +31,8 @@ class OdomLogger(Node):
         self.path_length = 0.0
         self.last_print_time = 0.0
 
+        self.get_logger().info('odom_logger started')
+
     def cb(self, msg):
         t = msg.header.stamp.sec + msg.header.stamp.nanosec * 1e-9
         p = msg.pose.pose.position
