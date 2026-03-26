@@ -123,7 +123,7 @@ def launch_setup(context, *args, **kwargs):
             output="screen",
         ),
         ExecuteProcess(
-            cmd=['python3', odom_logger_path],
+            cmd=["python3", "-u", odom_logger_path],
             output='screen'
         ),
 
