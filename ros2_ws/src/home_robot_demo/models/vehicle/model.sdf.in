@@ -315,17 +315,12 @@
     <!-- ========================= -->
     <!-- LEFT ARM -->
     <!-- ========================= -->
-    <!-- =========================
-     LEFT ARM (3 DOF)
-     DOF 1: shoulder yaw
-     DOF 2: shoulder pitch
-     DOF 3: gripper open/close
-     ========================= -->
 
+    <!-- Shoulder sphere -->
     <link name="left_shoulder_link">
       <pose relative_to="torso">0 0.24 0.08 0 0 0</pose>
       <inertial>
-        <mass>0.03</mass>
+        <mass>0.05</mass>
         <inertia>
           <ixx>0.0002</ixx>
           <ixy>0</ixy>
@@ -335,14 +330,14 @@
           <izz>0.0002</izz>
         </inertia>
       </inertial>
-      <collision name="left_shoulder_collision">
+      <collision name="collision">
         <geometry>
           <sphere>
             <radius>0.035</radius>
           </sphere>
         </geometry>
       </collision>
-      <visual name="left_shoulder_visual">
+      <visual name="visual">
         <geometry>
           <sphere>
             <radius>0.035</radius>
@@ -356,6 +351,7 @@
       </visual>
     </link>
 
+    <!-- Upper arm: link frame is at shoulder joint -->
     <link name="left_upper_arm_link">
       <pose relative_to="left_shoulder_link">0 0 0 0 0 0</pose>
       <inertial>
@@ -370,29 +366,30 @@
           <izz>0.0002</izz>
         </inertia>
       </inertial>
-      <collision name="left_upper_arm_collision">
+      <collision name="collision">
         <pose>0 0 -0.10 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.04 0.04 0.20</size>
+            <size>0.04 0.04 0.25</size>
           </box>
         </geometry>
       </collision>
-      <visual name="left_upper_arm_visual">
+      <visual name="visual">
         <pose>0 0 -0.10 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.04 0.04 0.20</size>
+            <size>0.04 0.04 0.25</size>
           </box>
         </geometry>
         <material>
-          <ambient>0.9 0.35 0.35 1</ambient>
-          <diffuse>0.9 0.35 0.35 1</diffuse>
-          <specular>0.9 0.35 0.35 1</specular>
+          <ambient>0.46 0.46 0.46 1.0</ambient>
+          <diffuse>0.46 0.46 0.46 1.0</diffuse>
+          <specular>0.46 0.46 0.46 1.0</specular>
         </material>
       </visual>
     </link>
 
+    <!-- Forearm: link frame is at elbow joint -->
     <link name="left_forearm_link">
       <pose relative_to="left_upper_arm_link">0 0 -0.20 0 0 0</pose>
       <inertial>
@@ -407,29 +404,30 @@
           <izz>0.00015</izz>
         </inertia>
       </inertial>
-      <collision name="left_forearm_collision">
+      <collision name="collision">
         <pose>0 0 -0.09 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.035 0.035 0.18</size>
+            <size>0.035 0.035 0.22</size>
           </box>
         </geometry>
       </collision>
-      <visual name="left_forearm_visual">
+      <visual name="visual">
         <pose>0 0 -0.09 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.035 0.035 0.18</size>
+            <size>0.035 0.035 0.22</size>
           </box>
         </geometry>
         <material>
-          <ambient>0.8 0.15 0.15 1</ambient>
-          <diffuse>0.8 0.15 0.15 1</diffuse>
-          <specular>0.8 0.15 0.15 1</specular>
+          <ambient>0.5 0.5 0.5 1.0</ambient>
+          <diffuse>0.5 0.5 0.5 1.0</diffuse>
+          <specular>0.5 0.5 0.5 1.0</specular>
         </material>
       </visual>
     </link>
 
+    <!-- Palm / end effector base -->
     <link name="left_gripper_link">
       <pose relative_to="left_forearm_link">0 0 -0.18 0 0 0</pose>
       <inertial>
@@ -443,14 +441,14 @@
           <izz>5e-6</izz>
         </inertia>
       </inertial>
-      <collision name="left_gripper_collision">
+      <collision name="collision">
         <geometry>
           <box>
             <size>0.04 0.02 0.02</size>
           </box>
         </geometry>
       </collision>
-      <visual name="left_gripper_visual">
+      <visual name="visual">
         <geometry>
           <box>
             <size>0.04 0.02 0.02</size>
@@ -459,7 +457,6 @@
         <material>
           <ambient>0.6 0.6 0.6 1</ambient>
           <diffuse>0.6 0.6 0.6 1</diffuse>
-          <specular>0.6 0.6 0.6 1</specular>
         </material>
       </visual>
     </link>
@@ -477,17 +474,17 @@
           <izz>1e-6</izz>
         </inertia>
       </inertial>
-      <collision name="left_finger_left_collision">
+      <collision name="collision">
         <geometry>
           <box>
-            <size>0.03 0.008 0.01</size>
+            <size>0.03 0.008 0.15</size>
           </box>
         </geometry>
       </collision>
-      <visual name="left_finger_left_visual">
+      <visual name="visual">
         <geometry>
           <box>
-            <size>0.03 0.008 0.01</size>
+            <size>0.03 0.008 0.15</size>
           </box>
         </geometry>
       </visual>
@@ -506,17 +503,17 @@
           <izz>1e-6</izz>
         </inertia>
       </inertial>
-      <collision name="left_finger_right_collision">
+      <collision name="collision">
         <geometry>
           <box>
-            <size>0.03 0.008 0.01</size>
+            <size>0.03 0.008 0.15</size>
           </box>
         </geometry>
       </collision>
-      <visual name="left_finger_right_visual">
+      <visual name="visual">
         <geometry>
           <box>
-            <size>0.03 0.008 0.01</size>
+            <size>0.03 0.008 0.15</size>
           </box>
         </geometry>
       </visual>
@@ -534,7 +531,7 @@
           <velocity>1.5</velocity>
         </limit>
         <dynamics>
-          <damping>5.0</damping>
+          <damping>2.0</damping>
         </dynamics>
       </axis>
     </joint>
@@ -551,14 +548,26 @@
           <velocity>1.5</velocity>
         </limit>
         <dynamics>
-          <damping>5.0</damping>
+          <damping>2.0</damping>
         </dynamics>
       </axis>
     </joint>
 
-    <joint name="left_elbow_fixed_joint" type="fixed">
+    <joint name="left_elbow_pitch_joint" type="revolute">
       <parent>left_upper_arm_link</parent>
       <child>left_forearm_link</child>
+      <axis>
+        <xyz expressed_in="__model__">0 1 0</xyz>
+        <limit>
+          <lower>-2.2</lower>
+          <upper>0.0</upper>
+          <effort>10</effort>
+          <velocity>1.5</velocity>
+        </limit>
+        <dynamics>
+          <damping>2.0</damping>
+        </dynamics>
+      </axis>
     </joint>
 
     <joint name="left_gripper_link_fixed_joint" type="fixed">
@@ -578,7 +587,7 @@
           <velocity>0.2</velocity>
         </limit>
         <dynamics>
-          <damping>0.2</damping>
+          <damping>2.0</damping>
         </dynamics>
       </axis>
     </joint>
@@ -595,19 +604,13 @@
           <velocity>0.2</velocity>
         </limit>
         <dynamics>
-          <damping>0.2</damping>
+          <damping>2.0</damping>
         </dynamics>
       </axis>
     </joint>
 
-    <!-- ========================= -->
-    <!-- RIGHT ARM -->
-    <!-- ========================= -->
     <!-- =========================
-     RIGHT ARM (3 DOF)
-     DOF 1: shoulder yaw
-     DOF 2: shoulder pitch
-     DOF 3: gripper open/close
+     RIGHT ARM (Simple)
      ========================= -->
 
     <link name="right_shoulder_link">
@@ -674,9 +677,9 @@
           </box>
         </geometry>
         <material>
-          <ambient>0.9 0.35 0.35 1</ambient>
-          <diffuse>0.9 0.35 0.35 1</diffuse>
-          <specular>0.9 0.35 0.35 1</specular>
+          <ambient>0.46 0.46 0.46 1.0</ambient>
+          <diffuse>0.46 0.46 0.46 1.0</diffuse>
+          <specular>0.46 0.46 0.46 1.0</specular>
         </material>
       </visual>
     </link>

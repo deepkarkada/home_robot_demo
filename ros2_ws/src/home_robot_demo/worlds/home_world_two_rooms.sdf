@@ -229,7 +229,7 @@
 
       <include>
         <name>Toy1</name>
-        <pose>1.0 -2.0 0 0 0 3.14</pose>
+        <pose>2.0 1.0 0 0 0 3.14</pose>
         <uri>
           https://fuel.gazebosim.org/1.0/GoogleResearch/models/TEA_SET
         </uri>
