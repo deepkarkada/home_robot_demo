@@ -29,7 +29,7 @@ class OdomLogger(Node):
         self.prev_x = None
         self.prev_y = None
         self.path_length = 0.0
-        self.last_print_time = 0.0
+        self.msg_count = 0
 
         self.get_logger().info('odom_logger started')
 
@@ -74,14 +74,10 @@ class OdomLogger(Node):
         ])
         self.file.flush()
 
-        # print at ~2 Hz instead of every callback
-        if t - self.last_print_time >= 0.5:
-            self.get_logger().info(
-                f"x={x:.3f}, y={y:.3f}, "
-                f"displacement={displacement:.3f} m, "
-                f"path_length={self.path_length:.3f} m"
-            )
-            self.last_print_time = t
+        self.msg_count += 1
+        self.get_logger().info(
+            f"x={x:.3f}, y={y:.3f}, path_length={self.path_length:.3f} m"
+        )
 
         self.prev_x = x
         self.prev_y = y
