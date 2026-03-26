@@ -13,12 +13,12 @@
       <inertial>
           <mass>10.0</mass>
           <inertia>
-            <ixx>0.08</ixx>
+            <ixx>0.133</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>0.166</iyy>
+            <iyy>0.266</iyy>
             <iyz>0</iyz>
-            <izz>0.2166</izz>
+            <izz>0.3466</izz>
           </inertia>
       </inertial>
 
