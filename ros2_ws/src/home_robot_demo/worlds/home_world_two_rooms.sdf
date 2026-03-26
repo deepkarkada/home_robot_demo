@@ -237,7 +237,7 @@
 
       <include>
         <name>Block0</name>
-        <pose>0.5 -2.0 0 0 0 3.14</pose>
+        <pose>0.25 -2.0 0 0 0 3.14</pose>
         <uri>
           https://fuel.gazebosim.org/1.0/GoogleResearch/models/Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi
         </uri>
@@ -389,6 +389,80 @@
       <joint name="east_to_south" type="fixed">
         <parent>east_wall</parent>
         <child>south_wall</child>
+      </joint>
+    </model>
+
+    <model name="open_box">
+      <static>true</static>
+      <pose>2 -2 0 0 0 0</pose> 
+
+      <!-- Base -->
+      <link name="base">
+        <pose>0 0 0.0125 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>0.4 0.4 0.025</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>0.4 0.4 0.025</size></box>
+          </geometry>
+        </visual>
+      </link>
+
+      <!-- Left side -->
+      <link name="left_wall">
+        <pose>0 0.1875 0.2 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>0.4 0.025 0.4</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>0.4 0.025 0.4</size></box>
+          </geometry>
+        </visual>
+      </link>
+
+      <!-- Right side -->
+      <link name="right_wall">
+        <pose>0 -0.1875 0.2 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>0.4 0.025 0.4</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>0.4 0.025 0.4</size></box>
+          </geometry>
+        </visual>
+      </link>
+
+      <!-- Back -->
+      <link name="back_wall">
+        <pose>0.175 0 0.2 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box><size>0.05 0.4 0.4</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>0.05 0.4 0.4</size></box>
+          </geometry>
+        </visual>
+      </link>
+
+      <joint name="left_to_back" type="fixed">
+        <parent>left_wall</parent>
+        <child>back_wall</child>
+      </joint>
+      <joint name="back_to_right" type="fixed">
+        <parent>back_wall</parent>
+        <child>right_wall</child>
       </joint>
     </model>
 
