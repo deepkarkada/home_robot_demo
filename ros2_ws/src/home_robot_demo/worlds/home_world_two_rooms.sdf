@@ -342,6 +342,22 @@
         </uri>
       </include>
 
+      <include>
+        <name>Toy3</name>
+        <pose>4.0 2.0 0 0 0 3.14</pose>
+        <uri>
+          https://fuel.gazebosim.org/1.0/GoogleResearch/models/MINI_ROLLER
+        </uri>
+      </include>
+
+      <include>
+        <name>Toy4</name>
+        <pose>3.5 -2.0 0 0 0 3.14</pose>
+        <uri>
+          https://fuel.gazebosim.org/1.0/GoogleResearch/models/Toys_R_Us_Treat_Dispenser_Smart_Puzzle_Foobler
+        </uri>
+      </include>
+
       <joint name="north_to_east" type="fixed">
         <parent>north_wall</parent>
         <child>east_wall</child>
