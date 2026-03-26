@@ -195,6 +195,14 @@
         </uri>
       </include>
 
+      <include>
+        <name>Table0</name>
+        <pose>0 2.0 0 0 0 0</pose>
+        <uri>
+          https://fuel.gazebosim.org/1.0/OpenRobotics/models/Cafe table
+        </uri>
+      </include>
+
       <joint name="north_to_east_left" type="fixed">
         <parent>north_wall</parent>
         <child>east_wall_left</child>
