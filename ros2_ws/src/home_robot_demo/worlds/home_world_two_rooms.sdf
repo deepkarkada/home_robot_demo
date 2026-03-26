@@ -221,7 +221,7 @@
 
       <include>
         <name>Toy0</name>
-        <pose>-1.0 -2.0 0 0 0 3.14</pose>
+        <pose>-1.5 2.0 0 0 0 3.14</pose>
         <uri>
           https://fuel.gazebosim.org/1.0/GoogleResearch/models/BUNNY_RATTLE
         </uri>
@@ -232,6 +232,14 @@
         <pose>1.0 -2.0 0 0 0 3.14</pose>
         <uri>
           https://fuel.gazebosim.org/1.0/GoogleResearch/models/TEA_SET
+        </uri>
+      </include>
+
+      <include>
+        <name>Block0</name>
+        <pose>0.5 -2.0 0 0 0 3.14</pose>
+        <uri>
+          https://fuel.gazebosim.org/1.0/GoogleResearch/models/Granimals_20_Wooden_ABC_Blocks_Wagon_85VdSftGsLi
         </uri>
       </include>
 
