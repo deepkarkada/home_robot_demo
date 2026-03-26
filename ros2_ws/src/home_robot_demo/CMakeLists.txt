@@ -29,6 +29,7 @@ install(
     models
     config
     urdf
+    scripts
   DESTINATION share/${PROJECT_NAME}
 )
 

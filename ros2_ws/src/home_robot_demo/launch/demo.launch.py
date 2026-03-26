@@ -5,7 +5,6 @@ from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from launch.substitutions import PathJoinSubstitution
 
-
 def launch_setup(context, *args, **kwargs):
     pkg_share = FindPackageShare("home_robot_demo").perform(context)
 
@@ -68,6 +67,8 @@ def launch_setup(context, *args, **kwargs):
     with open(urdf_path, "r") as f:
         robot_description = f.read()
 
+    odom_logger_path = os.path.join(pkg_share, "scripts", "odom_logger.py")
+
     return [
         SetEnvironmentVariable(
             name="GZ_SIM_RESOURCE_PATH",
@@ -121,6 +122,11 @@ def launch_setup(context, *args, **kwargs):
             cmd=["gz", "sim", "-r", world_path],
             output="screen",
         ),
+        ExecuteProcess(
+            cmd=['python3', odom_logger_path],
+            output='screen'
+        ),
+
     ]
 
 
