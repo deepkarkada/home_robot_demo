@@ -25,5 +25,5 @@ colcon build <br>
 source install/setup.bash 
 
 ### ROS 2 launch
-ros2 launch home_robot_demo demo.launch.py
+ros2 launch home_robot_demo demo.launch.py <br>
 $${\color{red}Note:}$$ The models of the toys and block are loaded from Gazebo fuel, which might cause delays in loading of the Gazebo UI and errors such as missing textures. This is temporary and did load correctly in my testing. You might also see an error window pop up asking to quit or wait for GUI to load. Just click on wait and it does load correctly.
