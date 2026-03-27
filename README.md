@@ -34,7 +34,7 @@ source /opt/ros/jazzy/setup.bash <br>
 
 ### Build and run
 git clone https://github.com/deepkarkada/home_robot_demo.git
-cd home_robot_demo
+&& cd home_robot_demo
 
 ### Colcon build:
 colcon build
