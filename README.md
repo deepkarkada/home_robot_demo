@@ -1,4 +1,13 @@
 # home_robot_demo
+
+Test environment configuration
+| Component | Requirement | 
+|---|---|
+| OS | Ubuntu 24.04 (Noble) | 
+| ROS distribution | ROS 2 Jazzy | 
+| Simulator | Gazebo Harmonic | 
+| Build system | Colcon | 
+
 ### Installation instructions ros2 jazzy and gazebo harmonic:
 sudo apt install -y software-properties-common <br>
 sudo add-apt-repository universe <br>
