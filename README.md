@@ -8,6 +8,7 @@ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o
 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null <br>
 sudo apt update <br>
+sudo apt upgrade <br>
 
 sudo apt install -y ros-jazzy-desktop ros-jazzy-ros-gz ros-jazzy-ros-gz-bridge ros-jazzy-ros-gz-sim python3-rosdep python3-colcon-common-extensions <br>
 
@@ -17,11 +18,12 @@ source /opt/ros/jazzy/setup.bash <br>
 
 ### Build and run
 git clone https://github.com/deepkarkada/home_robot_demo.git
-&& cd home_robot_demo
+&& cd home_robot_demo/ros2_ws
 
 ### Colcon build:
-colcon build
+colcon build <br>
 source install/setup.bash 
 
 ### ROS 2 launch
 ros2 launch home_robot_demo demo.launch.py
+$${\color{red}Please note: The models of the toys and block are loaded from Gazebo fuel, which might cause delays in loading of the Gazebo UI and errors such as missing textures. This is temporary and did load correctly in my testing. You might also see an error window pop up asking to quit or wait for GUI to load. Just click on wait and it does load correctly.}$$
