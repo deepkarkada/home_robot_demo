@@ -26,8 +26,8 @@ sudo apt install -y ros-jazzy-ros2-control ros-jazzy-ros2-controllers ros-jazzy-
 source /opt/ros/jazzy/setup.bash <br>
 
 ### Build and run
-git clone https://github.com/deepkarkada/home_robot_demo.git
-&& cd home_robot_demo/ros2_ws
+git clone https://github.com/deepkarkada/home_robot_demo.git <br>
+cd home_robot_demo/ros2_ws
 
 ### Colcon build:
 colcon build <br>
