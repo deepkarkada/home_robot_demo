@@ -75,9 +75,10 @@ class OdomLogger(Node):
         self.file.flush()
 
         self.msg_count += 1
-        self.get_logger().info(
-            f"x={x:.3f}, y={y:.3f}, path_length={self.path_length:.3f} m"
-        )
+        if self.msg_count % 100 == 0:
+            self.get_logger().info(
+                f"x={x:.3f}, y={y:.3f}, path_length={self.path_length:.3f} m"
+            )
 
         self.prev_x = x
         self.prev_y = y

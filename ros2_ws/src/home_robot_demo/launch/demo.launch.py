@@ -88,6 +88,12 @@ def launch_setup(context, *args, **kwargs):
         Node(
             package="ros_gz_bridge",
             executable="parameter_bridge",
+            arguments=["/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock"],
+            output="screen",
+        ),
+        Node(
+            package="ros_gz_bridge",
+            executable="parameter_bridge",
             arguments=["/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan"],
             output="screen",
         ),
