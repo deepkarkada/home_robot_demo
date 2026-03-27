@@ -4,31 +4,14 @@ sudo apt install -y software-properties-common <br>
 sudo add-apt-repository universe <br>
 
 sudo apt update && sudo apt install -y curl <br>
-sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
-  -o /usr/share/keyrings/ros-archive-keyring.gpg <br>
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg <br>
 
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | \
-  sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null <br>
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null <br>
 sudo apt update <br>
 
-sudo apt install -y \
-  ros-jazzy-desktop \
-  ros-jazzy-ros-gz \
-  ros-jazzy-ros-gz-bridge \
-  ros-jazzy-ros-gz-sim \
-  python3-rosdep \
-  python3-colcon-common-extensions <br>
+sudo apt install -y ros-jazzy-desktop ros-jazzy-ros-gz ros-jazzy-ros-gz-bridge ros-jazzy-ros-gz-sim python3-rosdep python3-colcon-common-extensions <br>
 
-sudo apt install -y \
-  ros-jazzy-ros2-control \
-  ros-jazzy-ros2-controllers \
-  ros-jazzy-controller-manager \
-  ros-jazzy-joint-state-broadcaster \
-  ros-jazzy-diff-drive-controller \
-  ros-jazzy-gz-ros2-control \
-  ros-jazzy-robot-state-publisher \
-  ros-jazzy-joint-state-publisher \
-  ros-jazzy-xacro <br>
+sudo apt install -y ros-jazzy-ros2-control ros-jazzy-ros2-controllers ros-jazzy-controller-manager ros-jazzy-joint-state-broadcaster ros-jazzy-diff-drive-controller ros-jazzy-gz-ros2-control ros-jazzy-robot-state-publisher ros-jazzy-joint-state-publisher ros-jazzy-xacro <br>
 
 source /opt/ros/jazzy/setup.bash <br>
 
